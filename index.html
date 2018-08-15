@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript</title>
+
+<style type="text/css">
+
+	.errorMsg {
+		font-size: 10px;
+		color: red;
+		display: none;
+
+	}
+
+	.error input	{
+		border-color: red;
+
+	}
+
+	.error .errorMsg {
+		display: block;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>This is Javascript !</h1>
+		<h2>Type of Car Manufacturers</h2>
+		<ul id="cars">
+			<li>BMW</li>
+			<li>Toyota</li>
+			<li>Volkswagon</li>
+			<li>Bmw</li>
+		</ul>
+	</div>
+	<div class="input-box">
+		<input type="placeholder" name="company" id="username" placeholder="Enter username - Optional" class="required" >
+		
+	</div>
+	<div class="input-box">
+		<input type="placeholder" name="company" id="carModel" placeholder="Enter car model !!!" class="required">
+		<div class="errorMsg">Please enter class Model !!!</div>
+	</div>
+	<div class="input-box">
+		<input type="placeholder" name="company" id="carColor" placeholder="Enter car color !!!" class="required">
+		<div class="errorMsg">Please enter class Color !!!</div>
+	</div>
+	<button id ="enter">Enter </button>
+<script type="text/javascript" src="script1.js"></script>
+</body>
+</html>
