@@ -126,3 +126,17 @@ button.addEventListener('click', function() {
 		}
 	})
 });
+var inputList = document.querySelectorAll("input");
+
+inputList.forEach(function(input){	
+	input.addEventListener("keypress", function(event) {
+		if (event.keyCode === 13) {
+			
+			requiredFields.forEach(function(item){
+				if (item.value.length <=0) {
+					item.parentElement.classList.add("error");
+				}
+			})
+		}
+	});
+})
