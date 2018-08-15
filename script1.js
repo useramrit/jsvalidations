@@ -114,24 +114,81 @@
 // });
 
 
+var company = document.getElementById("carname");
+var model = document.getElementById("carModel");
+var color = document.getElementById("carColor");
+var carList = document.getElementById("cars");
+
 function checkRequiredFields(){
-	document.querySelectorAll(".required").forEach(function(item){
+	/*document.querySelectorAll(".required").forEach(function(item){
 		if (item.value.length <=0) {
 			item.parentElement.classList.add("error");
+
 		}
+	})*/
+
+	var result = [];
+	document.querySelectorAll(".required").forEach(function(item){
+		if (item.value.length <=0) {
+			// value is empty
+			item.parentElement.classList.add("error");
+			result.push(false)
+		} else {
+			result.push(true);
+			item.parentElement.classList.remove("error");
+		}
+
 	})
+
+	return result;
 };
 
 function enterKeyHandler(event) {
 	if (event.keyCode === 13) {
-		checkRequiredFields();
+			checkRequiredFields();
 	}
 };
 
+function addList(){
+
+	var brand = document.createElement("li");
+	var details = document.createElement("ul");
+	var modelName = document.createElement("li");
+	var carColor = document.createElement("li");
+	var deleteBtn = document.createElement("button");
+	brand.appendChild(document.createTextNode(company.value));
+	deleteBtn.appendChild(document.createTextNode("Delete"));
+	brand.appendChild(deleteBtn);
+
+	modelName.appendChild(document.createTextNode(model.value));
+	carColor.appendChild(document.createTextNode(color.value));
+	details.appendChild(modelName).appendChild(carColor);
+	brand.appendChild(details);
+	carList.appendChild(brand);
+
+	deleteBtn.addEventListener('click', function(e) {
+		carList.removeChild(brand);	
+	});
+};
+
+function clearPlaceholder(){
+	company.value = "";
+	model.value = "";
+	color.value = "";
+	
+};
+
 document.getElementById('enter').addEventListener('click', function() {
-	checkRequiredFields();
+	var validation = checkRequiredFields();
+	if (validation.indexOf(false) < 0) {
+		addList();
+		clearPlaceholder();
+	}
 });
 
 document.querySelectorAll("input").forEach(function(input){	
 	input.addEventListener("keypress", enterKeyHandler);
 })
+
+
+
