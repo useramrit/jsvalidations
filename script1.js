@@ -114,29 +114,24 @@
 // });
 
 
-var requiredFields = document.querySelectorAll(".required");
-console.log(requiredFields);
-var button = document.getElementById('enter');
-
-button.addEventListener('click', function() {
-	
-	requiredFields.forEach(function(item){
+function checkRequiredFields(){
+	document.querySelectorAll(".required").forEach(function(item){
 		if (item.value.length <=0) {
 			item.parentElement.classList.add("error");
 		}
 	})
-});
-var inputList = document.querySelectorAll("input");
+};
 
-inputList.forEach(function(input){	
-	input.addEventListener("keypress", function(event) {
-		if (event.keyCode === 13) {
-			
-			requiredFields.forEach(function(item){
-				if (item.value.length <=0) {
-					item.parentElement.classList.add("error");
-				}
-			})
-		}
-	});
+function enterKeyHandler(event) {
+	if (event.keyCode === 13) {
+		checkRequiredFields();
+	}
+};
+
+document.getElementById('enter').addEventListener('click', function() {
+	checkRequiredFields();
+});
+
+document.querySelectorAll("input").forEach(function(input){	
+	input.addEventListener("keypress", enterKeyHandler);
 })
