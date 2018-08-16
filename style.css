@@ -1,0 +1,32 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: linear-gradient(to right , red , yellow );
+	text-transform: uppercase;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.5);
+	transition: all ease-in 10s;
+
+}
+
+h1 {
+	font-family: font-family: 'Roboto Condensed', sans-serif;
+	letter-spacing: 20px;
+	font-size: 50px;
+	margin-top: 200px;
+	
+}
+
+h2 {
+	font-family: font-family: 'Roboto Condensed', sans-serif;
+	letter-spacing: 10px;
+	font-size: 25px;
+	margin-top: 50px;
+	
+}
+
+.colorCode {
+	text-transform: none;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 20px;
+}
